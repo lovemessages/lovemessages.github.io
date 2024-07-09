@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Ayuda de Google:
+# https://developers.google.com/search/docs/crawling-indexing/robots/create-robots-txt
+
+Sitemap: https://lovemessages.com/sitemap.xml

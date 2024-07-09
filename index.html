@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Messages - Download it now!</title>
+    <style>
+		@font-face {
+			font-family: 'museo_sans_rounded900';
+			src: url('museosansrounded-900.woff2') format('woff2'),
+				 url('museosansrounded-900.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
+		}
+        body {
+            /*font-family: Arial, sans-serif;*/
+			font-family: 'museo_sans_rounded900', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f8919a;
+			color: #60002e; /* color oscuro del texto */
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: #feedee url('img41.png') no-repeat center center; /* Añadir imagen de fondo */
+            background-size: cover; /* Ajustar el tamaño de la imagen para cubrir el contenedor */
+            box-shadow: 0 0 10px rgba(158, 6, 66, 0.5);
+            border-radius: 20px;
+			/*width: 80%; /* Ajustar el ancho del contenedor */
+            margin: 0 auto; /* Centrar el contenedor en la página */
+        }
+		ul#features {
+			list-style-type: none; /* Eliminar los puntos de la lista */
+            padding: 0; /* Eliminar el padding predeterminado */
+		}
+		ul#features li {
+            text-align: left; /* Alinear los elementos <li> a la izquierda */
+        }
+        .links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #fc517a;
+            border-radius: 5px;
+        }
+		margin: 0; /* Eliminar el margen predeterminado */
+    </style>
+	<script>
+        // Función para redirigir según el idioma del navegador
+        function redirectToStore() {
+            var languageCode = navigator.language || navigator.userLanguage;
+			var language = languageCode.split('-')[0];
+            var storeLink;
+
+            switch (language) {
+                case 'en':
+                    storeLink = 'https://play.google.com/store/apps/details?id=com.alecgames.love.messages';
+                    break;
+                case 'fr':
+                    storeLink = 'https://play.google.com/store/apps/details?id=com.alecgames.citations.damour';
+                    break;
+                case 'es':
+                    storeLink = 'https://play.google.com/store/apps/details?id=com.alecgames.frasesdeamor';
+                    break;
+                case 'pt':
+                    storeLink = 'https://play.google.com/store/apps/details?id=com.alecgames.mensagensdeamor';
+                    break;
+                default:
+                    storeLink = 'https://play.google.com/store/apps/details?id=com.alecgames.love.messages'; // Enlace predeterminado
+                    break;
+            }
+
+            // Redirigir al enlace correspondiente
+            //window.location.href = storeLink;
+			window.open(storeLink, '_blank');
+        } // end of 'redirectToStore()' function
+		
+		// Función para cambiar textos según el idioma
+        function localizeTexts() {
+			// si el dispositivo es un móvil, hacer las esquinas de .container con radio '0'
+			function getDevice(){
+				var deviceType = "desktop";
+				// device detection
+				const ua = navigator.userAgent;
+				if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+					return "tablet";
+				}
+				else if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua))  {
+					return "mobile";
+				}
+				return "desktop";
+			}
+			if (getDevice() == "mobile") {
+				document.getElementsByClassName("container")[0].style.borderRadius = "0px";
+			}
+			
+			// Detectar idioma del navegador y cambiar textos según el idioma
+			var languageCode = navigator.language || navigator.userLanguage;
+			var language = languageCode.split('-')[0];
+			var discoverText = document.getElementById('discover-text');
+			var featuresHeading = document.getElementById('features-heading');
+			var featuresList = document.getElementById('features');
+			var featureItems = featuresList.getElementsByTagName('li');
+			var title = document.getElementsByTagName('h1')[0];
+			console.log( "El idioma es " + language);
+			function defaultLang() {
+				title.textContent = 'Love Messages';
+				discoverText.textContent = 'Discover the features of our amazing app and download it now!';
+				featuresHeading.textContent = '✨ Features ✨';
+				featureItems[0].textContent = '📜 Many categories of love';
+				featureItems[1].textContent = '🎨 Customizable backgrounds';
+				featureItems[2].textContent = '🅰️ Change text font';
+				featureItems[3].textContent = '🗨️ Create your own phrases';
+				featureItems[4].textContent = '🎀🌟 Add stickers to your phrases';
+				featureItems[5].textContent = '🖼️ Use gallery photos as stickers';
+				featureItems[6].textContent = '📤 Share or download your creations';
+			}
+			switch (language) {
+				case 'en':
+					// English
+					defaultLang();
+					break;
+				case 'fr':
+					// French
+					title.textContent = "Citations et Messages d'Amour";
+					discoverText.textContent = 'Découvrez les fonctionnalités de notre application incroyable et téléchargez-la maintenant !';
+					featuresHeading.textContent = '✨ Fonctionnalités ✨';
+					featureItems[0].textContent = '📜 Nombreuses catégories d\'amour';
+					featureItems[1].textContent = '🎨 Arrière-plans personnalisables';
+					featureItems[2].textContent = '🅰️ Changer la police de texte';
+					featureItems[3].textContent = '🗨️ Créez vos propres phrases';
+					featureItems[4].textContent = '🎀🌟 Ajoutez des autocollants à vos phrases';
+					featureItems[5].textContent = '🖼️ Utilisez des photos de galerie comme autocollants';
+					featureItems[6].textContent = '📤 Partagez ou téléchargez vos créations';
+					break;
+				case 'es':
+					// Spanish
+					title.textContent = "Frases de Amor";
+					discoverText.textContent = '¡Descubre las características de nuestra increíble aplicación y descárgala ahora!';
+					featuresHeading.textContent = '✨ Características ✨';
+					featureItems[0].textContent = '📜 Muchas categorías de amor';
+					featureItems[1].textContent = '🎨 Fondos personalizables';
+					featureItems[2].textContent = '🅰️ Cambiar la fuente de texto';
+					featureItems[3].textContent = '🗨️ Crea tus propias frases';
+					featureItems[4].textContent = '🎀🌟 Agrega stickers a tus frases';
+					featureItems[5].textContent = '🖼️ Usa fotos de la galería como stickers';
+					featureItems[6].textContent = '📤 Comparte o descarga tus creaciones';
+					break;
+				case 'pt':
+					// Portuguese
+					title.textContent = "Frases e Mensagens de Amor";
+					discoverText.textContent = 'Descubra os recursos do nosso incrível aplicativo e faça o download agora!';
+					featuresHeading.textContent = '✨ Recursos ✨';
+					featureItems[0].textContent = '📜 Muitas categorias de amor';
+					featureItems[1].textContent = '🎨 Fundos personalizáveis';
+					featureItems[2].textContent = '🅰️ Alterar a fonte de texto';
+					featureItems[3].textContent = '🗨️ Crie suas próprias frases';
+					featureItems[4].textContent = '🎀🌟 Adicione stickers às suas frases';
+					featureItems[5].textContent = '🖼️ Use fotos da galeria como stickers';
+					featureItems[6].textContent = '📤 Compartilhe ou baixe suas criações';
+					break;
+				default:
+					// Default to English
+					defaultLang();
+					break;
+			} // end of 'switch'
+			
+		} // end of 'localizeTexts()' function
+		// Llamar a la función para cambiar textos al cargar la página
+		window.onload = function() {
+			localizeTexts();
+		};
+	</script>
+</head>
+<body>
+    <div class="container">
+        <h1>Love Messages</h1>
+        <p id="discover-text">Discover the features of our amazing app and download it now!</p>
+        <h2 id="features-heading">✨ Features ✨</h2>
+        <ul id="features">
+			<li>📜 Many categories of love</li>
+            <li>🎨 Customizable backgrounds</li>
+            <li>🅰️ Change text font</li>
+            <li>🗨️ Create your own phrases</li>
+            <li>🎀🌟​ Add stickers to your phrases</li>
+            <li>​🖼️​ Use gallery photos as stickers</li>
+            <li>📤 Share or download your creations</li>
+        </ul>
+        <div class="links">
+            <a href="#" onclick="redirectToStore(); return false;" target="_blank">Download on Play Store</a>
+            <a href="https://apps.apple.com/app/id6471991492" target="_blank">Download on App Store</a>
+        </div>
+    </div>
+</body>
+</html>
