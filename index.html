@@ -200,8 +200,19 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-FNQMTWW7MX');
+  // Modo de consentimiento
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'analytics_storage': 'denied'
+  });
+
+  // Anonimización de IP
+  gtag('config', 'G-FNQMTWW7MX', {
+    'anonymize_ip': true
+  });
 </script>
+
+
 <body>
     <div class="container">
         <h1>Love Messages</h1>
